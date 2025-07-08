@@ -1,0 +1,66 @@
+{% extends 'master.html' %}
+
+{% block body %}
+  <style>
+    .form-container {
+      max-width: 700px;
+      margin: auto;
+      padding: 30px;
+      background: #f8f9fa;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    .form-title {
+      margin-bottom: 30px;
+      font-weight: 600;
+      text-align: center;
+    }
+  </style>
+
+  <div class="container py-5">
+    <div class="form-container">
+      <h2 class="form-title">Add Book</h2>
+      <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="row">
+          <div class="mb-3 col-md-6">
+            <label for="event_title" class="form-label">Event Title</label>
+            <input type="text" class="form-control" id="event_title" name="event_title" required />
+          </div>
+
+          <div class="mb-3">
+            <label for="event_description" class="form-label">event_description</label>
+            <textarea class="form-control" id="event_description" name="event_description" rows="2" required></textarea>
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="event_date" class="form-label">Event date</label>
+            <input type="date" class="form-control" id="event_date" name="event_date" required />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-auto d-flex gap-5">
+            <select class="form-select" name="event_type" aria-label="Default select example">
+              <option selected>Open this select menu</option>
+              <option value="Concert">Concert</option>
+              <option value="Weeding">Weeding</option>
+            </select>
+  
+            <select class="form-select" name="status" aria-label="Default select example">
+              <option selected>Open this select menu</option>
+              <option value="NotStarted">NotStarted</option>
+              <option value="InProgress">InProgress</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}
